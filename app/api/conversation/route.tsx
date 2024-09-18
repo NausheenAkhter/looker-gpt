@@ -17,7 +17,7 @@ export const POST = async (req: Request) => {
             return new NextResponse('Message can\'t be empty', { status: 400 })
         }
         const completion = await openai.chat.completions.create({
-            messages: [{ role: "user", content: message }],
+            messages: [{ role: "user", content: `I am Nausheen. ${message}` }],
             model: "gpt-3.5-turbo",
         });
         console.log(completion.choices[0].message.content, 'completion.choices[0].message.contentcompletion.choices[0].message.content');
